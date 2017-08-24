@@ -1,20 +1,17 @@
 <?php
-
 /* @var $this yii\web\View */
-
-$this->title = 'Transcorp';
+$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Переводы в любую точку мира!</h1>
+        <h1>Transcorp</h1>
 
-        <p class="lead">На нашем сайте вы можете осушествить перевод денежных средств в любую точку мира где есть интернет!</p>
+        <p class="lead">Переводы в любую точку мира!</p>
 
     </div>
-    <div class="jumbotron">
-        <p class="Left">Здесь могла бы быть ваша реклама!)</p>
 
+    <div class="body-content">
 
 
     </div>
