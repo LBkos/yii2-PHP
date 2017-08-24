@@ -12,12 +12,10 @@ $this->title = 'Transcorp';
         <p class="lead">На нашем сайте вы можете осушествить перевод денежных средств в любую точку мира где есть интернет!</p>
 
     </div>
+    <div class="jumbotron">
+        <p class="Left">Здесь могла бы быть ваша реклама!)</p>
 
-    <div class="body-content">
 
-        <div class="row">
-
-        </div>
 
     </div>
 </div>
