@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m170824_051524_AddTables extends Migration
+class m170825_063244_add extends Migration
 {
     public function safeUp()
     {
@@ -15,32 +15,22 @@ class m170824_051524_AddTables extends Migration
             'email' => $this->string()->notNull()->unique(),
 
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
-            'created_at' => 'timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP',
-            'updated_at' => 'timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'created_at' => $this->string(),
+            'updated_at' => $this->string()
         ]);
-
-        $this->createTable('{{%profile}}', [
-            'id' => $this->primaryKey(),
-            'first_name' => $this->string()->notNull(),
-            'last_name' => $this->string()->notNull(),
-            'balance' => $this->integer()->defaultValue(100),
-            'id_users' => $this->integer()->comment('id for table users'),
-        ]);
-        $this->addForeignKey('FK_profile_sport', '{{%profile}}', 'id_users', '{{%users}}', 'id');
 
         $this->createTable('{{%transfer}}',[
             'id' => $this->primaryKey(),
             'transfer' => $this->integer()->comment('перевод'),
-            'id_profile' => $this->integer()->notNull(),
+            'id_users' => $this->integer()->notNull(),
         ]);
-        $this->addForeignKey('FK_transfer_sport', '{{%transfer}}', 'id_profile', '{{%profile}}', 'id');
+        $this->addForeignKey('FK_transfer_sport', '{{%transfer}}', 'id_users', '{{%users}}', 'id');
     }
 
 
     public function safeDown()
     {
         $this->dropTable('{{%transfer}}');
-        $this->dropTable('{{%profile}}');
         $this->dropTable('{{%users}}');
 
     }

@@ -7,19 +7,50 @@
  */
 
 
+
 namespace app\models;
 
 use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+
 
 class Profile extends ActiveRecord
 {
     public static function TableName()
     {
-        return '{{%profile}}';
     }
 
-    public function Profile()
+    public function behaviors()
     {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function findIdentity($id)
+    {
+        return static::findOne(['id' => $id ]);
+    }
+
+
+
+    public function getId()
+    {
+        return $this->getPrimaryKey();
+    }
+
+
 }
 

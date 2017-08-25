@@ -34,6 +34,7 @@ class SignupForm extends Model
             ['password', 'string', 'min' => 6], ];
     }
 
+
     public function register()
     {
         if (!$this->validate()) {
@@ -45,5 +46,8 @@ class SignupForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         return $user->save() ? $user : null;
-    }
+
+
+        }
+
 }
